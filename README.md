@@ -22,7 +22,7 @@ puede loguear.
  - Se copia la clave pública ca_key.pub en la carpeta /etc/ssh/ del servidor o servidores
  - Configurar sus servidores SSH para confiar en el CA modificando el archivo /etc/ssh/sshd_config
  - TrustedUserCAKeys /etc/ssh/ca_key.pub
- - Para no permitir que los usuarios agreguen sus propias claves al archivo authorized_keys se modifica el servidor /etc/ssh/sshd_config para que cambie la ruta donde estará ubicado el archivo authorized_keys
+ - Para no permitir que los usuarios agreguen sus propias claves al archivo authorized_keys se modifica en el servidor /etc/ssh/sshd_config para que cambie la ruta donde estará ubicado el archivo authorized_keys
  - AuthorizedKeysFile      /etc/ssh/authorized_keys/%u/keys /etc/ssh/authorized_keys/%u/keys2**
  - Este nueva ruta no estará disponible para los usuarios y cambiar el archivo HOME/.ssh/authorized_keys no tendrá efecto para iniciar sesión.
  - No permitir login con password
@@ -32,7 +32,7 @@ puede loguear.
  - El usuario cuando requiera acceso a un servidor debe proporcionar la clave pública al administrador del CA
  - Copiar el archivo id_rsa.pub al directorio del proyecto
  - Ejecutar sig_pub.sh
- - Lo primero que muestra es la información de la clave pública ssh del usuario para comprobar que realmente sea él.
+ - Lo primero que muestra es la información de la clave pública ssh del usuario para comprobar su identidad.
  - Introducir datos que serviran para firmar la nueva clave y llevar una auditoría.
  - ID: nombre del usuario que solicita el acceso
  - PRINCIPAL: nombre del usuario o usuarios linux que tendrá acceso, por ejemplo, "root,ubuntu,otrousuario", el usuario prodrá iniciar sesión en esas cuentas
