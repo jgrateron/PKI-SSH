@@ -24,7 +24,7 @@ puede loguear.
  - TrustedUserCAKeys /etc/ssh/ca_key.pub
  - Para no permitir que los usuarios agreguen sus propias claves al archivo authorized_keys se modifica el servidor /etc/ssh/sshd_config para que cambie la ruta donde estará ubicado el archivo authorized_keys
  - AuthorizedKeysFile      /etc/ssh/authorized_keys/%u/keys /etc/ssh/authorized_keys/%u/keys2**
- - Este nueva ruta no estará disponible para los usuarios y cambiar el archivo HOME/.ssh/authorized_keys no tendrá efecto
+ - Este nueva ruta no estará disponible para los usuarios y cambiar el archivo HOME/.ssh/authorized_keys no tendrá efecto para iniciar sesión.
  - No permitir login con password
  - PasswordAuthentication no 
  - Reiniciar el servicio ssh
@@ -42,6 +42,7 @@ puede loguear.
  - Ese nuevo archivo se comparte al usuario solicitante.
  - Ahora puede hacer login al servidor previamente configurado con el comando:
  - ssh -i id_rsa-cert.pub nombreusuario@servidor
+ - Ya no es necesario copiar la clave pública en el archivo authorized_keys del servidor ya que se comprueba que la nueva clave pública fue firmada por el CA.
  - ** Importante para obtener login es necesario el par de claves del lado del cliente, la privada que originó el clave pública que se va a firmar y la nueva clave firmada por el CA.
 ![Screenshot](https://github.com/jgrateron/PKI-SSH/blob/main/images/sign_client.png)
 # Notas
