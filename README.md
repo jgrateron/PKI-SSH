@@ -16,7 +16,7 @@ En el servidor se configura la clave pública CA y luego los clientes con su nue
 firmada tendrán acceso, donde se restringe el tiempo de duración y a que usuario se 
 puede loguear.
 
-# Pasos servidor
+# Pasos
  - Primero creamos el CA usando el script create_ca.sh, colocar siempre una clave para proteger la clave privada, se crean dos archivos: la clave pública y la clave privada
  - La clave pública se puede configurar en los servidores que desean o también se pueden crear múltiples CA para distintos servicios.
  - Se copia la clave pública ca_key.pub en la carpeta /etc/ssh/ del servidor o servidores
@@ -42,5 +42,7 @@ puede loguear.
  - ssh -i id_rsa-cert.pub nombreusuario@servidor
  - ** Importante para obtener login es necesario el par de claves del lado del cliente, la privada que originó el clave pública que se va a firmar y la nueva clave firmada por el CA.
 
- Para más información leer https://engineering.fb.com/2016/09/12/security/scalable-and-secure-access-with-ssh/ ya que se pueden crear otras formas para autenticar servidores,
- creación de grupos de usuarios para acceso ssh.
+# Notas
+ - No hay forma de revocar claves firmadas así que se recomienda crear una nueva CA en caso de que una clave esté comprometida
+ - Es remomendable crear nuevas CA cada cierto tiempo y asignar nuevamente los permisos
+ - Para más información leer https://engineering.fb.com/2016/09/12/security/scalable-and-secure-access-with-ssh/ ya que se pueden crear otras formas para autenticar servidores, creación de grupos de usuarios para acceso ssh.
