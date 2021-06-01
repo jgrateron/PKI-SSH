@@ -43,6 +43,6 @@ puede loguear.
  - ** Importante para obtener login es necesario el par de claves del lado del cliente, la privada que originó el clave pública que se va a firmar y la nueva clave firmada por el CA.
 
 # Notas
- - No hay forma de revocar claves firmadas así que se recomienda crear una nueva CA en caso de que una clave esté comprometida
- - Es remomendable crear nuevas CA cada cierto tiempo y asignar nuevamente los permisos
+ - No hay forma de revocar claves firmadas así que se recomienda crear una nueva CA en caso de que una clave esté comprometida.
+ - Es recomendable crear nuevas CA cada cierto tiempo y asignar nuevamente los permisos.
  - Para más información leer https://engineering.fb.com/2016/09/12/security/scalable-and-secure-access-with-ssh/ ya que se pueden crear otras formas para autenticar servidores, creación de grupos de usuarios para acceso ssh.
