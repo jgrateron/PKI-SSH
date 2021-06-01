@@ -28,6 +28,7 @@ puede loguear.
  - No permitir login con password
  - PasswordAuthentication no 
  - Reiniciar el servicio ssh
+![Screenshot](https://github.com/jgrateron/PKI-SSH/blob/main/images/create_ca.png)
  - El usuario cuando requiera acceso a un servidor debe proporcionar la clave pública al administrador del CA
  - Copiar el archivo id_rsa.pub al directorio del proyecto
  - Ejecutar sig_pub.sh
@@ -42,7 +43,7 @@ puede loguear.
  - Ahora puede hacer login al servidor previamente configurado con el comando:
  - ssh -i id_rsa-cert.pub nombreusuario@servidor
  - ** Importante para obtener login es necesario el par de claves del lado del cliente, la privada que originó el clave pública que se va a firmar y la nueva clave firmada por el CA.
-
+![Screenshot](https://github.com/jgrateron/PKI-SSH/blob/main/images/sign_client.png)
 # Notas
  - No hay forma de revocar claves firmadas así que se recomienda crear una nueva CA en caso de que una clave esté comprometida.
  - Es recomendable crear nuevas CA cada cierto tiempo y asignar nuevamente los permisos.
