@@ -27,17 +27,18 @@ puede loguear.
  - Este nueva ruta no estará disponible para los usuarios y cambiar el archivo HOME/.ssh/authorized_keys no tendrá efecto
  - No permitir login con password
  - PasswordAuthentication no 
- - Reiniciar el servidor
+ - Reiniciar el servicio ssh
  - El usuario cuando requiera acceso a un servidor debe proporcionar la clave pública al administrador del CA
  - Copiar el archivo id_rsa.pub al directorio del proyecto
  - Ejecutar sig_pub.sh
- - Lo primero que muestra es la información de la clave pública ssh del usuario para comprobar que realmente sea el.
- - Introducir datos que serviran para firmar la nueva clave y llevar una auditoria.
+ - Lo primero que muestra es la información de la clave pública ssh del usuario para comprobar que realmente sea él.
+ - Introducir datos que serviran para firmar la nueva clave y llevar una auditoría.
  - ID: nombre del usuario que solicita el acceso
- - PRINCIPAL: nombre del usuario o usuarios linux que tendrá acceso, por ejemplo, "root,ubuntu,otrousuario", el usuario prodrá iniciar sesión en esas cuentas.
- - LIVE: Tiempo de duración de vigencia de la clave pública, (+1m,+1h,+1d,+52w), +52w es un año aprox.
+ - PRINCIPAL: nombre del usuario o usuarios linux que tendrá acceso, por ejemplo, "root,ubuntu,otrousuario", el usuario prodrá iniciar sesión en esas cuentas
+ - En éste punto es preferible crear otro usuario ya que el usuario ubuntu puede ejecutar comandos como root.
+ - LIVE: Tiempo de duración de vigencia de la clave pública, (+1m,+1h,+1d,+52w), +52w es aprox un año.
  - Luego se crea una nueva clave pública id_rsa-cert.pub en el directorio keys/fecha
- - Ese nuevo archivo se comparte al usuario solicitante
+ - Ese nuevo archivo se comparte al usuario solicitante.
  - Ahora puede hacer login al servidor previamente configurado con el comando:
  - ssh -i id_rsa-cert.pub nombreusuario@servidor
  - ** Importante para obtener login es necesario el par de claves del lado del cliente, la privada que originó el clave pública que se va a firmar y la nueva clave firmada por el CA.
